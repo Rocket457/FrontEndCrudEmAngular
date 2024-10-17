@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReadComponent } from './read/read.component';
-import { CreateComponent } from './create_button/create_button.component';
+import { CreateComponent } from './create-button/create-button.component';
 import { SearchComponent } from "./search/search.component";
 import { FetchHttp } from './fetch.service';
 

@@ -1,0 +1,43 @@
+# Diretório de dependências do Node
+node_modules/
+
+# Arquivos de log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Ambiente de produção
+.env
+.env.local
+.env.*.local
+
+# Diretório de saída de build
+dist/
+build/
+
+# Diretórios de cache do pacote
+.cache/
+.next/
+out/
+.nuxt/
+.svelte-kit/
+.svelte/
+
+# Arquivos temporários do editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Logs de erros
+*.log

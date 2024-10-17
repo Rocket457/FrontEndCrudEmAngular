@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-create-button',
   standalone: true,
   imports: [],
-  templateUrl: './create_button.component.html',
-  styleUrl: './create_button.component.css'
+  templateUrl: './create-button.component.html',
+  styleUrl: './create-button.component.css'
 })
 export class CreateComponent {
 
