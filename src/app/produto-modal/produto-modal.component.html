@@ -1,1 +1,24 @@
-<p>produto-modal works!</p>
+<div class="modal-overlay">
+    <div class="modal-container">
+        <header>
+            <h2 class="modal-header">Criar/Editar Produto</h2>
+            <div class="modal-divider"></div>
+        </header>
+        <form (ngSubmit)="Salvar()"> <!-- Chama o método Salvar() no envio do formulário -->
+            <div class="input-container">
+                <input type="text" id="productName" class="input-field" placeholder="Digite o nome do produto" [(ngModel)]="name" name="name" required>
+                <label class="floating-label" for="productName">Nome do Produto</label>
+            </div>
+
+            <div class="input-container">
+                <input type="number" id="productPrice" class="input-field" placeholder="Digite o preço" [(ngModel)]="price" name="price" required>
+                <label for="productPrice" class="floating-label">Preço</label>
+            </div>
+
+            <div class="modal-buttons">
+                <button type="submit" class="button-primary">Salvar</button>
+                <button type="button" class="button-basic">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

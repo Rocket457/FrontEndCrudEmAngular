@@ -1,0 +1,72 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fundo escuro */
+    backdrop-filter: blur(5px); /* Efeito de blur */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Certifique-se de que esteja na frente de todo o resto */
+}
+
+.modal-container {
+    background-color: var(--color-background-secondary);
+    padding-inline: 50px;
+    width: 40vw;
+    border-radius: 8px;
+    box-shadow: var(--shadow-high);
+    z-index: 10000;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+
+label {
+    font-size: 16px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.input-field {
+    width: 39vw;
+    margin-block: 10px;
+    padding: 10px;
+    font-size: 16px;
+    color: var(--color-text-primary);
+    background-color: var(--color-background-secondary);
+    border: 1px solid var(--color-text-secondary);
+    border-radius: 5px;
+    outline: none;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-bottom: 5%;
+}
+
+.floating-label {
+    visibility: visible;
+    opacity: 1;
+}
+
+.button-primary, .button-basic {
+    width: 48%; /* Ajuste o tamanho dos botões para caberem lado a lado */
+}
+
+.modal-divider {
+    height: 0.5px;
+    background-color: #DEE2E6;
+    margin-top: 0;
+    opacity: 50%;
+    margin-bottom: 2%;
+}

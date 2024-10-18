@@ -9,18 +9,24 @@ import { FetchHttp } from './fetch.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SearchComponent, CreateComponent, ReadComponent, HttpClientModule],
+  imports: [
+    RouterOutlet, 
+    SearchComponent, 
+    CreateComponent, 
+    ReadComponent, 
+    HttpClientModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   produtos: any[] = [];
   loading: boolean = true;
+  isModalOpen: boolean = false; // Variável para controlar a visibilidade do modal
 
   constructor(private fetchHttp: FetchHttp) {}
 
   ngOnInit() {
-    this.getAll(); // Carrega todos os produtos inicialmente
+    this.getAll();
   }
 
   getAll() {
@@ -51,11 +57,11 @@ export class AppComponent implements OnInit {
     });
   }
 
-  // Método chamado quando o evento de pesquisa é emitido pelo SearchComponent
   onSearchTriggered(searchTerm: string) {
-    if (searchTerm == ''){
-      return this.getAll()
+    if (searchTerm == '') {
+      return this.getAll();
     }
     this.getProdutos(searchTerm);
   }
+
 }
