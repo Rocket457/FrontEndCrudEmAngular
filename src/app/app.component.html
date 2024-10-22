@@ -4,8 +4,7 @@
         <app-search (searchEvent)="onSearchTriggered($event)" class="search"></app-search>
         <app-create-button class="create"></app-create-button>
     </div>
-    <!-- Router outlet para renderizar os componentes conforme a rota -->
+    <app-read [produtos]="produtos" [loading]="loading"  class="read"></app-read>
     <router-outlet></router-outlet>
-    <!-- Mostra o modal se estiver aberto -->
     <!-- <produto-modal *ngIf="isModalOpen" (close)="closeModal()"></produto-modal> -->
 </div>

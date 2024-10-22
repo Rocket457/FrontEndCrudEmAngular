@@ -10,7 +10,7 @@ import { Produto } from './models/produto.model'; // ajuste o caminho conforme n
 export class FetchHttp {
   
   constructor(private http: HttpClient) {}
-  ApiURl = "https://localhost:61545/api/"
+  ApiURl = "https://cruddetest-c9d5adcme3ffbhde.brazilsouth-01.azurewebsites.net/api/"
   
   getAll(): Observable<any> {
     return this.http.get(this.ApiURl + 'itens');
