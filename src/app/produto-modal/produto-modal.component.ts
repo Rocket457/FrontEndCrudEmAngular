@@ -26,7 +26,7 @@ export class ProdutoModalComponent {
 
     this.fetchHttp.createItem(novoProduto).subscribe({
       next: (response) => {
-        console.log('Produto criado com sucesso:', response);
+        alert('Produto criado com sucesso:'+ response.nome);
         this.close.emit(); // Fechar o modal após salvar
       },
       error: (error) => {
