@@ -2,9 +2,9 @@
     <h1>Produtos</h1>
     <div class="search-create-wrapper">
         <app-search (searchEvent)="onSearchTriggered($event)" class="search"></app-search>
-        <app-create-button class="create"></app-create-button>
+        <app-create-button (click)="openCreateModal()" class="create"></app-create-button>
     </div>
-    <app-read [produtos]="produtos" [loading]="loading"  class="read"></app-read>
+    <app-read [produtos]="produtos" [loading]="loading" class="read"></app-read>
+    <produto-modal *ngIf="isModalOpen" (close)="closeModal()"></produto-modal>
     <router-outlet></router-outlet>
-    <!-- <produto-modal *ngIf="isModalOpen" (close)="closeModal()"></produto-modal> -->
 </div>

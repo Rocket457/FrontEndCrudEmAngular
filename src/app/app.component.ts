@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReadComponent } from './read/read.component';
 import { CreateComponent } from './create-button/create-button.component';
 import { SearchComponent } from "./search/search.component";
+import { ProdutoModalComponent } from './produto-modal/produto-modal.component'; 
 import { FetchHttp } from './fetch.service';
 
 @Component({
@@ -11,17 +13,20 @@ import { FetchHttp } from './fetch.service';
   standalone: true,
   imports: [
     RouterOutlet, 
+    CommonModule,
     SearchComponent, 
     CreateComponent, 
     ReadComponent, 
-    HttpClientModule],
+    ProdutoModalComponent, 
+    HttpClientModule
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   produtos: any[] = [];
   loading: boolean = true;
-  isModalOpen: boolean = false; // Variável para controlar a visibilidade do modal
+  isModalOpen: boolean = false;
 
   constructor(private fetchHttp: FetchHttp) {}
 
@@ -64,4 +69,11 @@ export class AppComponent implements OnInit {
     this.getProdutos(searchTerm);
   }
 
+  openCreateModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
 }
