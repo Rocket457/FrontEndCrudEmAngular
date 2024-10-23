@@ -1,5 +1,5 @@
-// search.component.ts
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Produto } from '@app/models/produto.model';
 
 @Component({
   selector: 'app-search',
@@ -9,15 +9,15 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class SearchComponent {
   searchTerm: string = '';
+  
+  @Input() produtos: Produto[] = []; // Declaração para receber a lista de produtos
+  @Output() searchEvent = new EventEmitter<string>();
 
-  @Output() searchEvent = new EventEmitter<string>(); // Evento que será emitido para o AppComponent
-
-  // Método chamado quando o valor de input mudar
   onSearchChange(event: Event) {
     const target = event.target as HTMLInputElement;
     if (target) {
       this.searchTerm = target.value;
-      this.searchEvent.emit(this.searchTerm); // Emite o evento de pesquisa
+      this.searchEvent.emit(this.searchTerm); // Emite o termo de pesquisa
     }
   }
 }

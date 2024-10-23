@@ -29,6 +29,7 @@
 
 .table tr:hover {
     background-color: var(--color-accent) !important;
+    cursor: pointer;
 }
 
 .table .price {

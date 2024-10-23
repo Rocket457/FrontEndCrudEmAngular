@@ -23,4 +23,8 @@ export class FetchHttp {
   createItem(produto: Produto): Observable<any> {
     return this.http.post(this.ApiURl + 'itens/criar', produto); 
   }
+
+  updateItem(id: number, novoProduto: Produto): Observable<any> {
+    return this.http.put(this.ApiURl + 'itens/' + id, novoProduto); 
+  }
 }

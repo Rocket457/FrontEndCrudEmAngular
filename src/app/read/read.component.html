@@ -1,4 +1,3 @@
-<!-- read.component.html -->
 <div class="row">
   <table class="table">
     <thead>
@@ -15,13 +14,13 @@
         </tr>
       </ng-container>
       <ng-template #content>
-        <tr *ngFor="let produto of produtos">
+        <tr *ngIf="!loading && produtos.length === 0">
+          <td colspan="3">Nenhum produto encontrado.</td>
+        </tr>
+        <tr *ngFor="let produto of produtos" (click)="onProdutoClick(produto)">
           <td>{{ produto.id }}</td>
           <td>{{ produto.nome }}</td>
           <td class="price">R$ {{ produto.preco | number:'1.2-2' }}</td>
-        </tr>
-        <tr *ngIf="produtos.length === 0">
-          <td colspan="3">Nenhum produto encontrado.</td>
         </tr>
       </ng-template>
     </tbody>
