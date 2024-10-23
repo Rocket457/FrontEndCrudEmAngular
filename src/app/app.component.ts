@@ -16,7 +16,7 @@ import { Produto } from './models/produto.model';
     RouterOutlet, 
     CommonModule,
     SearchComponent, 
-    CreateComponent, 
+    CreateComponent,
     ReadComponent,
     ProdutoModalComponent, 
     HttpClientModule
