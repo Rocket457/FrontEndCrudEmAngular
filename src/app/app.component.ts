@@ -17,7 +17,7 @@ import { Produto } from './models/produto.model';
     CommonModule,
     SearchComponent, 
     CreateComponent, 
-    ReadComponent, 
+    ReadComponent,
     ProdutoModalComponent, 
     HttpClientModule
   ],
