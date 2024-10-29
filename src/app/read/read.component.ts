@@ -2,6 +2,7 @@ import { Component, EventEmitter, HostListener, Input, Output } from '@angular/c
 import { CommonModule } from '@angular/common';
 import { Produto } from '@app/models/produto.model';
 import { FetchHttp } from '@app/fetch.service';
+import { AppComponent } from '@app/app.component';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class ReadComponent {
   @Input() produtos: Produto[] = [];
   @Input() loading: boolean = true;
   @Output() produtoSelecionado = new EventEmitter<Produto>();
-
+  @Output() productDeleted = new EventEmitter<void>()
+  
   produtosVisiveis: Produto[] = []; // Produtos filtrados e visíveis
   showContextMenu = false;
   contextMenuPosition = { x: 0, y: 0 };
@@ -41,6 +43,7 @@ export class ReadComponent {
       this.fetchHttp.deleteItem(produto.id).subscribe({
         next: () => {
           alert('Produto deletado com sucesso' );
+          this.productDeleted.emit();
         },
         error: (error: any) => {
           console.error('Erro ao deletar produto:', error);

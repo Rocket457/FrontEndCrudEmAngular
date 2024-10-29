@@ -25,6 +25,7 @@ import { Produto } from './models/produto.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
   produtos: Produto[] = [];
   produtosFiltrados: Produto[] = [];
   loading: boolean = true;
@@ -83,4 +84,7 @@ onProdutoSelecionado(produto: Produto) {
     this.isModalOpen = true;
 }
 
+onDeleteProduct() {
+  this.getAll()
+}
 }

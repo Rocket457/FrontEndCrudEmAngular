@@ -12,6 +12,7 @@
         [produtos]="produtosFiltrados" 
         [loading]="loading" 
         (produtoSelecionado)="onProdutoSelecionado($event)" 
+        (deleteProduct)="onDeleteProduct()"
         class="read">
     </app-read>
     <produto-modal 
