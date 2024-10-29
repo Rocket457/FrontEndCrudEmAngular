@@ -2,25 +2,35 @@
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Nome do Produto</th>
+        <th class="id">ID</th>
+        <th class="name">Nome do Produto</th>
         <th class="price">Preço</th>
+        <th class="edit"><span class="fa-solid fa-pen icon pen"></span></th>
+        <th class="deletar"><span class="fas fa-trash-alt trash icon"></span></th> <!-- Cabeçalho vazio para o ícone -->
       </tr>
     </thead>
     <tbody>
       <ng-container *ngIf="loading; else content">
         <tr>
-          <td colspan="3">Carregando...</td>
+          <td colspan="4">Carregando...</td>
         </tr>
       </ng-container>
       <ng-template #content>
         <tr *ngIf="!loading && produtos.length === 0">
-          <td colspan="3">Nenhum produto encontrado.</td>
+          <td colspan="4">Nenhum produto encontrado.</td>
         </tr>
-        <tr *ngFor="let produto of produtos" (click)="onProdutoClick(produto)">
-          <td>{{ produto.id }}</td>
-          <td>{{ produto.nome }}</td>
+        <tr
+          *ngFor="let produto of produtos"
+        >
+          <td class="id">{{ produto.id }}</td>
+          <td class="name">{{ produto.nome }}</td>
           <td class="price">R$ {{ produto.preco | number:'1.2-2' }}</td>
+          <td class="editar">
+            <i class="fa-solid fa-pen icon pen" (click)="onProdutoClick(produto)"></i>
+          </td>
+          <td class="deletar">
+            <i class="fas fa-trash-alt trash" (click)="deleteProduct(produto)"></i>
+          </td>
         </tr>
       </ng-template>
     </tbody>

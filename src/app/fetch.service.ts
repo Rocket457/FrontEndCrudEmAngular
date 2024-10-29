@@ -27,4 +27,8 @@ export class FetchHttp {
   updateItem(id: number, novoProduto: Produto): Observable<any> {
     return this.http.put(this.ApiURl + 'itens/' + id, novoProduto); 
   }
+
+  deleteItem(id: number): Observable<any> {
+    return this.http.delete(this.ApiURl + 'itens/' + id); 
+  }
 }

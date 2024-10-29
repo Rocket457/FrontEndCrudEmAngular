@@ -25,10 +25,12 @@ export class ProdutoModalComponent implements OnInit {
       this.id = this.produto.id; // Acessar diretamente, pois estamos garantindo que produto não é nulo
       this.name = this.produto.nome;
       this.price = this.produto.preco;
+      document.body.style.overflow = 'hidden';
     }
   }
 
   Salvar() {
+    document.body.style.overflow = 'auto';
     const novoProduto: Produto = {
       id: this.id,
       nome: this.name,
@@ -63,6 +65,7 @@ export class ProdutoModalComponent implements OnInit {
   }
 
   onCancel() {
+    document.body.style.overflow = 'auto';
     this.close.emit(); 
   }
 }
