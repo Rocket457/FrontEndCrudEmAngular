@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Produto } from '@app/models/produto.model';
 import { FetchHttp } from '@app/fetch.service';
-import { FormsModule } from '@angular/forms'; // Importando o FormsModule
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'produto-modal',
@@ -12,9 +12,9 @@ import { FormsModule } from '@angular/forms'; // Importando o FormsModule
 })
 export class ProdutoModalComponent implements OnInit {
   @Input() modo: 'criar' | 'editar' | undefined;
-  @Input() produto: Produto | null = null; // Uso de Produto como tipo
-  @Output() close = new EventEmitter<void>(); // Emissor de evento para fechar o modal
-  id: number | undefined; // Tornar o ID opcional, mas vai garantir que não será undefined no update
+  @Input() produto: Produto | null = null; 
+  @Output() close = new EventEmitter<void>(); 
+  id: number | undefined; 
   name: string = '';
   price: number = 0;
 
@@ -22,7 +22,7 @@ export class ProdutoModalComponent implements OnInit {
 
   ngOnInit() {
     if (this.modo === 'editar' && this.produto) {
-      this.id = this.produto.id; // Acessar diretamente, pois estamos garantindo que produto não é nulo
+      this.id = this.produto.id
       this.name = this.produto.nome;
       this.price = this.produto.preco;
       document.body.style.overflow = 'hidden';
@@ -38,28 +38,41 @@ export class ProdutoModalComponent implements OnInit {
     };
 
     if (this.modo === 'criar') {
-      this.fetchHttp.createItem(novoProduto).subscribe({
-        next: (response) => {
-          alert('Produto criado com sucesso: ' + response.nome);
-          this.close.emit(); // Fechar o modal após salvar
-        },
-        error: (error) => {
-          console.error('Erro ao criar produto:', error);
-        }
-      });
+      if (this.name !== "" || this.price !== 0) {
+
+        this.fetchHttp.createItem(novoProduto).subscribe({
+
+          next: (response) => {
+            alert('Produto criado com sucesso: ' + response.nome);
+            this.close.emit(); // Fechar o modal após salvar
+          },
+          error: (error) => {
+            console.error('Erro ao criar produto:', error);
+          }
+
+        });
+      } else {
+          alert('Adicione um nome e um preço para o produto!')
+      }
+
     } else if (this.modo === 'editar') {
-      if (this.id !== undefined) { // Garantir que id não é undefined
+
+      if (this.id !== undefined) { 
+
         this.fetchHttp.updateItem(this.id, novoProduto).subscribe({
+
           next: (response: { nome: string; }) => {
             alert('Produto atualizado com sucesso: ' + response.nome);
             this.close.emit();
+
           },
           error: (error: any) => {
             console.error('Erro ao atualizar produto:', error);
           }
+
         });
       } else {
-        console.error('ID do produto não está definido.'); // Lidar com o caso de ID indefinido
+        console.error('ID do produto não está definido.');
       }
     }
   }
